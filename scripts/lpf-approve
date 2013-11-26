@@ -51,6 +51,7 @@ function gui_approve()
 function cli_approve()
 {
     local license=$1
+    [ "$LPF_UNITTEST" ] && return 0
     more $license
     echo -n "Do you accept these license terms [n] ? "
     read reply < $LPF_CONSOLE

@@ -13,6 +13,10 @@ function cli_confirm_install()
     local to_install=()
     local rpm
     for rpm in $( ls $resultdir ); do
+        if [ "$LPF_UNITTEST" ]; then
+            to_install=( ${to_install[@]} $resultdir/$rpm )
+            continue
+        fi
         echo -n "Install $rpm (Yes/no) [y] ? " >&5
         read < $LPF_CONSOLE
         if [[ -z "$REPLY" || "$REPLY" == [Yy]* ]]; then
