@@ -21,6 +21,7 @@ install:
 	install -pDm 640 pkg-build.sudo $(DESTDIR)/etc/sudoers.d/pkg-build
 	install -pDm 644 macros.lpf $(DESTDIR)$(RPM_MACROS_DIR)/macros.lpf
 	cp -ar scripts CONFIG $(DESTDIR)$(DATADIR)/lpf
+        rm -f  $(DESTDIR)$(DATADIR)/lpf/scripts/pylint.conf
         cp -a lpf-notify.desktop $(DESTDIR)$(DATADIR)/lpf
         cp -a icons/*.png $(DESTDIR)$(DATADIR)/icons
 	ln -s $(DATADIR)/lpf/scripts/lpf $(DESTDIR)$(BINDIR)/lpf
